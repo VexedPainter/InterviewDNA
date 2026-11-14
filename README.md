@@ -244,13 +244,21 @@ This seeds 1,600 records across 8 companies and 10 years using calibrated statis
 - Node.js 18+ and npm 9+
 - Git
 
-### Quick Start (Two Terminals)
+### Quick Start
+
+#### Option A: Windows One-Command Startup (Easiest)
+```cmd
+.\run.bat dev
+```
+*(or double-click `dev.bat`)* — Starts both the FastAPI backend (`:8000`) and the Vite React frontend (`:5173`) together with unified colored logs.
+
+#### Option B: Two Terminals (Any OS)
 
 **Terminal 1 — Python Backend:**
 
 ```powershell
 # 1. Clone
-git clone https://github.com/your-username/InterviewDNA.git
+git clone https://github.com/VexedPainter/InterviewDNA.git
 cd InterviewDNA
 
 # 2. Virtual environment
@@ -282,12 +290,18 @@ npm run dev
 # → open http://localhost:5173
 ```
 
-**Or use Make:**
+**Or use Make / Windows Batch:**
 
 ```bash
-make dev      # starts both API and frontend concurrently
-make api      # API only  (port 8000)
-make frontend # frontend only (port 5173)
+# Windows
+.\run.bat dev      # starts both API (:8000) and frontend (:5173) concurrently
+.\run.bat api      # API only (port 8000)
+.\run.bat frontend # frontend only (port 5173)
+
+# Linux / macOS
+make dev           # starts both API and frontend concurrently
+make api           # API only  (port 8000)
+make frontend      # frontend only (port 5173)
 ```
 
 ### Environment Variables (`.env`)
