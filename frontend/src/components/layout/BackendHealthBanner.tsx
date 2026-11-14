@@ -8,8 +8,13 @@ export const BackendHealthBanner: React.FC = () => {
     queryKey: ['backend-health'],
     queryFn: () => api.getHealth(),
     retry: 1,
-    staleTime: 30000,
-    refetchOnWindowFocus: false,
+    staleTime: 15000,
+    refetchInterval: (query) => {
+      // Auto-poll every 4 seconds when in error or backend not healthy so banner auto-clears on recovery
+      const isUnhealthy = query.state.status === 'error' || query.state.data?.status !== 'healthy'
+      return isUnhealthy ? 4000 : false
+    },
+    refetchOnWindowFocus: true,
   })
 
   if (isLoading || (!isError && data?.status === 'healthy')) {
@@ -17,7 +22,7 @@ export const BackendHealthBanner: React.FC = () => {
   }
 
   return (
-    <div className="bg-rose-500/90 text-white px-4 py-2 text-xs flex items-center justify-between sticky top-0 z-50 shadow-md backdrop-blur-sm border-b border-rose-600">
+    <div className="bg-rose-500/90 text-white px-4 py-2 text-xs flex items-center justify-between sticky top-0 z-50 shadow-md backdrop-blur-sm border-b border-rose-600 transition-all">
       <div className="flex items-center space-x-2 max-w-4xl mx-auto flex-1">
         <AlertCircle className="w-4 h-4 flex-shrink-0" />
         <span className="font-semibold">Backend Offline:</span>
@@ -26,7 +31,7 @@ export const BackendHealthBanner: React.FC = () => {
         </span>
         <span className="hidden sm:inline-flex items-center text-rose-200 pl-2">
           <Terminal className="w-3.5 h-3.5 mr-1" />
-          Run <code className="bg-black/30 px-1.5 py-0.5 rounded ml-1 font-mono text-white">make api</code> in root
+          Run <code className="bg-black/30 px-1.5 py-0.5 rounded ml-1 font-mono text-white">.\run.bat dev</code> (or <code className="bg-black/30 px-1.5 py-0.5 rounded ml-1 font-mono text-white">.\run.bat api</code>)
         </span>
       </div>
 
