@@ -53,9 +53,9 @@ class InterviewerAgent:
     # Public API
     # ------------------------------------------------------------------
 
-    def run(self, memory: SessionMemory) -> TurnRecord:
+    def run(self, memory: SessionMemory, style_with_llm: bool = True) -> TurnRecord:
         """
-        Pick the next question, style it using company DNA, and register it
+        Pick the next question, optionally style it using company DNA, and register it
         in memory.  Returns the newly created TurnRecord.
         """
         state = memory.state
@@ -67,19 +67,22 @@ class InterviewerAgent:
 
         question_result = self._fetch_question(state, difficulty)
 
-        # Style the question text using the company's interviewer persona
-        styled_question = self._style_question(
-            raw_question=question_result["question"],
-            style_summary=style_summary,
-            company=state.company,
-            role=state.role,
-            round_type=state.round_type,
-            turn_number=len(state.history) + 1,
-            total_turns=state.max_turns,
-            topic=question_result.get("topic", "General"),
-            difficulty=difficulty,
-            expected_points=question_result.get("expected_points", ""),
-        )
+        # Style the question text using the company's interviewer persona if requested
+        if style_with_llm and style_summary:
+            styled_question = self._style_question(
+                raw_question=question_result["question"],
+                style_summary=style_summary,
+                company=state.company,
+                role=state.role,
+                round_type=state.round_type,
+                turn_number=len(state.history) + 1,
+                total_turns=state.max_turns,
+                topic=question_result.get("topic", "General"),
+                difficulty=difficulty,
+                expected_points=question_result.get("expected_points", ""),
+            )
+        else:
+            styled_question = question_result["question"]
 
         turn = memory.start_new_turn(
             question=styled_question,

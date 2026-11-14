@@ -12,11 +12,27 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    host: true,
+    strictPort: true,
+    host: 'localhost',
+    watch: {
+      ignored: [
+        '**/node_modules/**',
+        '**/.git/**',
+        '**/chroma_db/**',
+        '**/data/**',
+        '**/*.db',
+        '**/*.pdf',
+        '**/*.csv',
+        '**/logs/**',
+        '**/venv/**',
+        '**/.pytest_cache/**',
+      ],
+    },
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'http://127.0.0.1:8000',
         changeOrigin: true,
+        secure: false,
       },
     },
   },

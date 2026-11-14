@@ -1,0 +1,81 @@
+{
+  "company": "Google",
+  "role": null,
+  "total_records": 160,
+  "selection_rate": 17.5,
+  "avg_difficulty": 3.99,
+  "difficulty_trend_by_year": {
+    "2016": 4.0,
+    "2017": 4.09,
+    "2018": 4.08,
+    "2019": 4.0,
+    "2020": 4.12,
+    "2021": 4.06,
+    "2022": 3.78,
+    "2023": 4.05,
+    "2024": 3.95,
+    "2025": 3.91
+  },
+  "topic_distribution": {
+    "DSA": 36.25,
+    "System Design": 18.75,
+    "Behavioral": 17.5,
+    "OOP": 8.75,
+    "OS": 7.5,
+    "Aptitude": 5.62,
+    "DBMS": 5.0,
+    "Projects": 0.62
+  },
+  "round_distribution": {
+    "Technical": 59.38,
+    "Managerial": 27.5,
+    "HR": 6.88,
+    "Aptitude": 6.25
+  },
+  "top_rejection_tags": [
+    {
+      "tag": "poor code quality",
+      "count": 48
+    },
+    {
+      "tag": "didn't think about trade-offs",
+      "count": 47
+    },
+    {
+      "tag": "system design not scalable",
+      "count": 46
+    },
+    {
+      "tag": "no edge case handling",
+      "count": 44
+    },
+    {
+      "tag": "couldn't analyse complexity",
+      "count": 40
+    }
+  ],
+  "top_positive_tags": [
+    {
+      "tag": "top performer",
+      "count": 17
+    },
+    {
+      "tag": "great design intuition",
+      "count": 14
+    },
+    {
+      "tag": "elegant solution",
+      "count": 11
+    },
+    {
+      "tag": "considered scalability",
+      "count": 11
+    },
+    {
+      "tag": "clean code",
+      "count": 8
+    }
+  ],
+  "interviewer_style_summary": "1. Core Focus & Rigor: Feedback emphasizes top performer, great design intuition, holding high standards on conceptual depth.\n2. Primary Elimination Factors: Candidates are frequently eliminated due to poor code quality, didn't think about trade-offs.\n3. Interview Atmosphere: Interviewers assess practical demonstration over theory, prioritizing candidates who handle follow-up probing and edge cases.",
+  "generated_at": "2026-11-14T20:04:02.857741"
+}

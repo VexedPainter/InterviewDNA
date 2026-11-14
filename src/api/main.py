@@ -6,6 +6,8 @@ from __future__ import annotations
 
 import logging
 
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
@@ -21,6 +23,23 @@ logging.basicConfig(
 )
 logger = logging.getLogger("interviewdna.api")
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Preload models, vector store, and orchestrator on startup."""
+    logger.info("Lifespan startup: Preloading ChromaDB, embeddings, and Orchestrator...")
+    try:
+        from src.api.deps import get_orchestrator, get_retriever, load_archive_records
+        _ = get_retriever()
+        _ = get_orchestrator()
+        _ = load_archive_records()
+        logger.info("Lifespan startup complete: All dependencies preloaded.")
+    except Exception as exc:
+        logger.error("Lifespan startup preloading error: %s", exc, exc_info=True)
+    yield
+    logger.info("Lifespan shutdown: Releasing resources.")
+
+
 app = FastAPI(
     title="InterviewDNA REST API",
     description=(
@@ -28,6 +47,7 @@ app = FastAPI(
         "intent router, dynamic scoring, evidence-grounded coaching, and SQLite persistence."
     ),
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 # -----------------------------------------------------------------------------

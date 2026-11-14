@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { BackendHealthBanner } from './components/layout/BackendHealthBanner'
 import { Navbar } from './components/layout/Navbar'
 import { Sidebar } from './components/layout/Sidebar'
 import { AuroraBackground } from './components/layout/AuroraBackground'
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="relative min-h-screen flex flex-col font-sans">
+        <BackendHealthBanner />
         <AuroraBackground />
         <Navbar />
         <Sidebar />

@@ -1,0 +1,81 @@
+{
+  "company": "Amazon",
+  "role": "Business Analyst",
+  "total_records": 45,
+  "selection_rate": 24.44,
+  "avg_difficulty": 3.44,
+  "difficulty_trend_by_year": {
+    "2016": 3.0,
+    "2017": 3.25,
+    "2018": 4.0,
+    "2019": 2.33,
+    "2020": 3.33,
+    "2021": 3.8,
+    "2022": 3.17,
+    "2023": 3.2,
+    "2024": 4.17,
+    "2025": 3.57
+  },
+  "topic_distribution": {
+    "Behavioral": 37.78,
+    "DSA": 28.89,
+    "System Design": 11.11,
+    "Aptitude": 8.89,
+    "DBMS": 4.44,
+    "OOP": 4.44,
+    "Projects": 2.22,
+    "OS": 2.22
+  },
+  "round_distribution": {
+    "Technical": 55.56,
+    "Managerial": 17.78,
+    "HR": 15.56,
+    "Aptitude": 11.11
+  },
+  "top_rejection_tags": [
+    {
+      "tag": "vague behavioral examples",
+      "count": 14
+    },
+    {
+      "tag": "no STAR format",
+      "count": 12
+    },
+    {
+      "tag": "suboptimal DSA solution",
+      "count": 12
+    },
+    {
+      "tag": "weak leadership principle answer",
+      "count": 11
+    },
+    {
+      "tag": "no ownership mindset",
+      "count": 11
+    }
+  ],
+  "top_positive_tags": [
+    {
+      "tag": "top performer",
+      "count": 9
+    },
+    {
+      "tag": "STAR format used well",
+      "count": 6
+    },
+    {
+      "tag": "strong LP alignment",
+      "count": 6
+    },
+    {
+      "tag": "data-driven thinking",
+      "count": 6
+    },
+    {
+      "tag": "customer obsession evident",
+      "count": 2
+    }
+  ],
+  "interviewer_style_summary": "1. Core Focus & Rigor: Feedback emphasizes top performer, STAR format used well, holding high standards on conceptual depth.\n2. Primary Elimination Factors: Candidates are frequently eliminated due to vague behavioral examples, no STAR format.\n3. Interview Atmosphere: Interviewers assess practical demonstration over theory, prioritizing candidates who handle follow-up probing and edge cases.",
+  "generated_at": "2026-11-14T20:04:02.969382"
+}

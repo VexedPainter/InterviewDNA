@@ -1,0 +1,80 @@
+{
+  "company": "Google",
+  "role": "Software Engineer",
+  "total_records": 47,
+  "selection_rate": 19.15,
+  "avg_difficulty": 4.09,
+  "difficulty_trend_by_year": {
+    "2016": 4.25,
+    "2017": 4.33,
+    "2018": 4.25,
+    "2019": 4.33,
+    "2020": 3.0,
+    "2021": 4.25,
+    "2022": 3.75,
+    "2023": 4.25,
+    "2024": 4.22,
+    "2025": 4.0
+  },
+  "topic_distribution": {
+    "DSA": 38.3,
+    "Behavioral": 21.28,
+    "System Design": 14.89,
+    "OOP": 10.64,
+    "OS": 6.38,
+    "DBMS": 4.26,
+    "Aptitude": 4.26
+  },
+  "round_distribution": {
+    "Technical": 55.32,
+    "Managerial": 25.53,
+    "HR": 12.77,
+    "Aptitude": 6.38
+  },
+  "top_rejection_tags": [
+    {
+      "tag": "didn't think about trade-offs",
+      "count": 18
+    },
+    {
+      "tag": "poor code quality",
+      "count": 12
+    },
+    {
+      "tag": "couldn't analyse complexity",
+      "count": 12
+    },
+    {
+      "tag": "system design not scalable",
+      "count": 12
+    },
+    {
+      "tag": "incorrect solution",
+      "count": 11
+    }
+  ],
+  "top_positive_tags": [
+    {
+      "tag": "top performer",
+      "count": 5
+    },
+    {
+      "tag": "clean code",
+      "count": 4
+    },
+    {
+      "tag": "great design intuition",
+      "count": 4
+    },
+    {
+      "tag": "elegant solution",
+      "count": 3
+    },
+    {
+      "tag": "correct complexity analysis",
+      "count": 3
+    }
+  ],
+  "interviewer_style_summary": "1. Core Focus & Rigor: Feedback emphasizes top performer, clean code, holding high standards on conceptual depth.\n2. Primary Elimination Factors: Candidates are frequently eliminated due to didn't think about trade-offs, poor code quality.\n3. Interview Atmosphere: Interviewers assess practical demonstration over theory, prioritizing candidates who handle follow-up probing and edge cases.",
+  "generated_at": "2026-11-14T21:33:57.089856"
+}

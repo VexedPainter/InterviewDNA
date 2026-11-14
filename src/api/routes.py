@@ -87,10 +87,21 @@ COMPANY_ROUND_STRUCTURES: dict[str, list[str]] = {
 @router.get("/health", response_model=HealthResponse)
 async def get_health():
     """Health check endpoint to verify backend availability."""
+    chroma_ready = False
+    try:
+        from src.api.deps import get_retriever
+        r = get_retriever()
+        chroma_ready = r is not None and getattr(r, "q_col", None) is not None and r.q_col.count() > 0
+    except Exception:
+        pass
+
     return HealthResponse(
         status="healthy",
         service="InterviewDNA API",
         version="1.0.0",
+        models_loaded=True,
+        chroma_ready=chroma_ready,
+        llm_provider=getattr(settings, "llm_provider", "gemini"),
     )
 
 
@@ -178,8 +189,8 @@ async def create_session(payload: CreateSessionRequest):
     )
     sessions[session_id] = memory
 
-    # Pick the opening interview question
-    first_turn = orchestrator.interviewer.run(memory)
+    # Pick the opening interview question (style_with_llm=False for fast startup)
+    first_turn = orchestrator.interviewer.run(memory, style_with_llm=False)
 
     return CreateSessionResponse(
         session_id=session_id,

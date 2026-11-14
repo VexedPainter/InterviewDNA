@@ -54,9 +54,7 @@ frontend:
 	cd frontend && npm run dev
 
 dev:
-	@echo "Starting InterviewDNA fullstack dev..."
-	@echo "Terminal 1: make api"
-	@echo "Terminal 2: make frontend"
+	cd frontend && npx concurrently -n "API,VITE" -c "cyan.bold,magenta.bold" "python -m uvicorn src.api.main:app --app-dir .. --reload --port 8000" "npm run dev"
 
 test:
 	$(PYTEST) tests/ -v

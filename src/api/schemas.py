@@ -29,6 +29,9 @@ class HealthResponse(BaseModel):
     status: str = Field(default="healthy", description="Service health status")
     service: str = Field(default="InterviewDNA API", description="Service name")
     version: str = Field(default="1.0.0", description="API version")
+    models_loaded: bool = Field(default=True, description="Whether ML models & ChromaDB are preloaded")
+    chroma_ready: bool = Field(default=True, description="Whether ChromaDB collections are accessible")
+    llm_provider: str = Field(default="gemini", description="Active LLM provider")
 
 
 # -----------------------------------------------------------------------------

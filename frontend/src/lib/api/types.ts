@@ -6,6 +6,9 @@ export interface HealthResponse {
   status: string
   service: string
   version: string
+  models_loaded?: boolean
+  chroma_ready?: boolean
+  llm_provider?: string
 }
 
 export interface CompanyInfo {

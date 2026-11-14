@@ -13,6 +13,8 @@ import {
   Search,
   Timer,
   Sparkles,
+  AlertTriangle,
+  Loader2,
 } from 'lucide-react'
 import { GlassCard } from '../../components/ui/GlassCard'
 import { useSessionStore } from '../../store/sessionStore'
@@ -52,6 +54,8 @@ export const SetupWizard: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1)
   const [searchQuery, setSearchQuery] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [isSuccess, setIsSuccess] = useState(false)
 
   const { data: companiesData, isLoading } = useQuery({
     queryKey: ['companies'],
@@ -72,6 +76,7 @@ export const SetupWizard: React.FC = () => {
 
   const handleCreateSession = async () => {
     setIsSubmitting(true)
+    setErrorMsg(null)
     setProcessing(true)
     try {
       const resp = await api.createSession({
@@ -82,11 +87,13 @@ export const SetupWizard: React.FC = () => {
         difficulty_mode: difficultyMode,
         pressure_mode: pressureMode,
       })
+      setIsSuccess(true)
       startSession(resp.session_id, resp.first_question)
       navigate('/interview')
-    } catch (err) {
+    } catch (err: any) {
       console.error('Failed to create session:', err)
-      alert('Could not connect to API server. Please make sure FastAPI backend is running on port 8000.')
+      const detail = err?.detail || err?.message || 'Could not connect to API server. Please make sure FastAPI backend is running on port 8000.'
+      setErrorMsg(detail)
     } finally {
       setIsSubmitting(false)
       setProcessing(false)
@@ -384,6 +391,30 @@ export const SetupWizard: React.FC = () => {
           )}
         </AnimatePresence>
 
+        {/* Error message card */}
+        {errorMsg && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 flex items-start justify-between gap-3 text-xs"
+          >
+            <div className="flex items-start gap-2.5">
+              <AlertTriangle className="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <span className="font-semibold text-rose-200">Unable to Start Session</span>
+                <p className="mt-0.5 text-rose-300/80 leading-relaxed">{errorMsg}</p>
+              </div>
+            </div>
+            <button
+              onClick={handleCreateSession}
+              disabled={isSubmitting}
+              className="px-3 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 text-xs font-medium flex-shrink-0 transition-colors"
+            >
+              Retry
+            </button>
+          </motion.div>
+        )}
+
         {/* Wizard Controls */}
         <div className="flex items-center justify-between pt-8 border-t border-border/60">
           <button
@@ -409,8 +440,22 @@ export const SetupWizard: React.FC = () => {
               disabled={isSubmitting}
               className="inline-flex items-center px-7 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent to-accent-cyan hover:opacity-95 active:scale-95 transition-all shadow-glow-violet disabled:opacity-50"
             >
-              <Sparkles className="w-4 h-4 mr-2" />
-              <span>{isSubmitting ? 'Initializing Agents...' : 'Start Mock Interview'}</span>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  <span>Initializing Agents...</span>
+                </>
+              ) : isSuccess ? (
+                <>
+                  <Check className="w-4 h-4 mr-2" />
+                  <span>Ready! Starting...</span>
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-4 h-4 mr-2" />
+                  <span>Start Mock Interview</span>
+                </>
+              )}
             </button>
           )}
         </div>
