@@ -1,0 +1,81 @@
+{
+  "company": "Amazon",
+  "role": "Software Development Engineer",
+  "total_records": 200,
+  "selection_rate": 25.0,
+  "avg_difficulty": 3.53,
+  "difficulty_trend_by_year": {
+    "2016": 3.25,
+    "2017": 3.5,
+    "2018": 3.69,
+    "2019": 3.06,
+    "2020": 3.7,
+    "2021": 3.95,
+    "2022": 3.23,
+    "2023": 3.46,
+    "2024": 3.81,
+    "2025": 3.5
+  },
+  "topic_distribution": {
+    "Behavioral": 33.0,
+    "DSA": 23.5,
+    "System Design": 14.0,
+    "OOP": 7.5,
+    "Aptitude": 6.5,
+    "DBMS": 6.5,
+    "OS": 5.0,
+    "Projects": 4.0
+  },
+  "round_distribution": {
+    "Technical": 48.0,
+    "Managerial": 32.0,
+    "HR": 12.0,
+    "Aptitude": 8.0
+  },
+  "top_rejection_tags": [
+    {
+      "tag": "vague behavioral examples",
+      "count": 57
+    },
+    {
+      "tag": "weak leadership principle answer",
+      "count": 53
+    },
+    {
+      "tag": "no STAR format",
+      "count": 52
+    },
+    {
+      "tag": "no ownership mindset",
+      "count": 50
+    },
+    {
+      "tag": "suboptimal DSA solution",
+      "count": 46
+    }
+  ],
+  "top_positive_tags": [
+    {
+      "tag": "top performer",
+      "count": 34
+    },
+    {
+      "tag": "customer obsession evident",
+      "count": 20
+    },
+    {
+      "tag": "strong LP alignment",
+      "count": 19
+    },
+    {
+      "tag": "optimal algorithm",
+      "count": 19
+    },
+    {
+      "tag": "data-driven thinking",
+      "count": 17
+    }
+  ],
+  "interviewer_style_summary": "1. Core Focus & Rigor: Feedback emphasizes top performer, customer obsession evident, holding high standards on conceptual depth.\n2. Primary Elimination Factors: Candidates are frequently eliminated due to vague behavioral examples, weak leadership principle answer.\n3. Interview Atmosphere: Interviewers assess practical demonstration over theory, prioritizing candidates who handle follow-up probing and edge cases.",
+  "generated_at": "2026-11-13T23:19:52.611727"
+}

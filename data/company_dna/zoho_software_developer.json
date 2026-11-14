@@ -1,0 +1,81 @@
+{
+  "company": "Zoho",
+  "role": "Software Developer",
+  "total_records": 50,
+  "selection_rate": 44.0,
+  "avg_difficulty": 3.2,
+  "difficulty_trend_by_year": {
+    "2016": 3.0,
+    "2017": 3.0,
+    "2018": 3.25,
+    "2019": 1.67,
+    "2020": 3.14,
+    "2021": 4.0,
+    "2022": 4.2,
+    "2023": 3.4,
+    "2024": 2.9,
+    "2025": 3.0
+  },
+  "topic_distribution": {
+    "DSA": 34.0,
+    "Aptitude": 28.0,
+    "OOP": 12.0,
+    "DBMS": 8.0,
+    "Behavioral": 8.0,
+    "OS": 4.0,
+    "Networks": 4.0,
+    "Projects": 2.0
+  },
+  "round_distribution": {
+    "Technical": 68.0,
+    "Aptitude": 18.0,
+    "HR": 8.0,
+    "Managerial": 6.0
+  },
+  "top_rejection_tags": [
+    {
+      "tag": "couldn't optimise",
+      "count": 11
+    },
+    {
+      "tag": "no edge case handling",
+      "count": 10
+    },
+    {
+      "tag": "weak OOP design",
+      "count": 9
+    },
+    {
+      "tag": "no complexity analysis",
+      "count": 9
+    },
+    {
+      "tag": "failed coding round",
+      "count": 9
+    }
+  ],
+  "top_positive_tags": [
+    {
+      "tag": "top performer",
+      "count": 14
+    },
+    {
+      "tag": "clean code",
+      "count": 10
+    },
+    {
+      "tag": "handled edge cases",
+      "count": 9
+    },
+    {
+      "tag": "explained time complexity",
+      "count": 9
+    },
+    {
+      "tag": "wrote optimal solution",
+      "count": 8
+    }
+  ],
+  "interviewer_style_summary": "1. Core Focus & Rigor: Feedback emphasizes top performer, clean code, holding high standards on conceptual depth.\n2. Primary Elimination Factors: Candidates are frequently eliminated due to couldn't optimise, no edge case handling.\n3. Interview Atmosphere: Interviewers assess practical demonstration over theory, prioritizing candidates who handle follow-up probing and edge cases.",
+  "generated_at": "2026-11-14T11:16:19.155691"
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="a" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="b" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <!-- Background rounded square -->
+  <rect width="64" height="64" rx="14" fill="#07090e"/>
+  <!-- Helix strand A -->
+  <path d="M24 6 Q36 14 24 22 Q12 30 24 38 Q36 46 24 54 Q12 62 24 58" stroke="url(#a)" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Helix strand B -->
+  <path d="M40 6 Q28 14 40 22 Q52 30 40 38 Q28 46 40 54 Q52 62 40 58" stroke="url(#b)" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Rungs -->
+  <line x1="24" y1="22" x2="40" y2="22" stroke="#a855f7" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="24" y1="38" x2="40" y2="38" stroke="#a855f7" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="24" y1="10" x2="40" y2="10" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+  <line x1="24" y1="54" x2="40" y2="54" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+</svg>

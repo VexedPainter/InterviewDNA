@@ -1,0 +1,10 @@
+[lint]
+select = ["E", "F", "I", "W", "UP"]
+ignore = [
+    "E501",   # Line too long (handled by formatter / long prompts)
+    "UP035",  # typing.Dict/List deprecation in Python 3.14
+    "UP006",  # Type annotations
+]
+
+[lint.isort]
+combine-as-imports = true
